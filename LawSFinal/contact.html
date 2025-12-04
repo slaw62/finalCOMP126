@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Contact</title>
+    <meta name="author" content="Adtile">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/contact_styles.css">
+    <script src="js/responsive-nav.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poiret+One&display=swap" rel="stylesheet">
+    </head>
+
+<body>    
+    <div class="grid-container">
+        <header>   
+
+            <div class="logo"> 
+                <h2>THE ALCHEMIST'S STUDY</h2>
+            </div>
+            <div class="nav">
+                <nav class="nav-collapse">      
+                    <ul>
+                        <li class="menu-item"><a href="index.html" data-scroll>home</a></li>
+                        <li class="menu-item"><a href="drinks.html" data-scroll>drinks</a></li>
+                        <li class="menu-item"><a href="contact.html" data-scroll>contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <div class="contact_card">
+            <h2 class="contact_info">
+                Contact Information
+            </h2>
+
+            <h3 class="address_title">
+                Address:
+            </h3>
+
+            <p class="adress_info">
+                444 Wizard Trail, Chapel Hill, NC, 27517
+            </p>
+
+            <h3 class="phone_title">
+                Phone Number:
+            </h3>
+
+            <p class="phone_info">
+                (333) 555-1111
+            </p>
+
+            <h3 class="email_title">
+                Email:
+            </h3>
+
+            <p class="email_info">
+                thealchemistsstudy@warlock.com
+            </p>            
+
+        </div>
+
+        <div class="image_contact">
+            <img class="contact_image" src="img/contact_image.jpg" alt="Black and white picture of bar">
+        </div>
+
+
+        <div class="container">
+            <form id="contact-form">
+            <h2>Questions? Get in touch!</h2>
+            
+                <div class="name">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="email">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required /> </div>
+
+                <div class="message">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+
+                <div class="button">
+                    <button type="submit">Submit</button>
+                    <p id="form-message"></p>
+                </div>
+            </form>
+        </div>
+        
+        <footer>
+            <div class="contact">
+
+            <p class="address_info_f">
+                Address: 444 Wizard Trail, Chapel Hill, NC, 27517
+            </p>
+
+            <p class="phone_info_f">
+                Phone Number: (333) 555-1111
+            </p>
+
+            <p class="email_info_f">
+                Email: thealchemistsstudy@warlock.com
+            </p>     
+
+            </div>
+
+    
+            <div class="f_logo">
+                <h2 class="logo_f">THE ALCHEMIST'S STUDY</h2> 
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script>
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxWRNAZqD3vIrbVidndJisC7ZtV29qnrJ4NhJR16aarY1re2s60257eTTGvMA1R3YHF/exec';
+
+    form.addEventListener('submit', e => {
+    e.preventDefault();
+    formMessage.textContent = 'Sending...';
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+        formMessage.textContent = 'Message sent successfully!';
+        form.reset();
+        setTimeout(() => { formMessage.textContent = ''; }, 5000);
+        })
+        .catch(error => {
+        formMessage.textContent = 'Oops! Something went wrong.';
+        console.error('Error!', error.message);
+        });
+    });
+</script>
+</body>
+
+    
+    <script src="js/fastclick.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/fixed-responsive-nav.js"></script>
+
+
+</html>
